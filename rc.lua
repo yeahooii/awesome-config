@@ -36,8 +36,12 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+-- define local config direction
+configdir = awful.util.getdir("config")
+themedir = configdir .. "/themes/grey-crown"
+
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(themedir .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -98,9 +102,11 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
+theme.kshutdown_icon = themedir .. "/icons/kshutdown.png"
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal }
+                                    { "open terminal", terminal },
+                                    { "Shutdown", terminal .. " -e sudo shutdown -P now", theme.kshutdown_icon }
                                   }
                         })
 
