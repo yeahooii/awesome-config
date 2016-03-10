@@ -350,9 +350,35 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    -- use xprop to show the class property
+    -- WM_CLASS(STRING) = "Navigator", "Firefox"
+    --
+    -- Set Firefox to always map on tags number 9 of screen 1.
+    { rule = { instance="Navigator", class = "Firefox" },
+      properties = { tag=tags[1][9], floating=true } },
+    { rule = { instance="Places", class = "Firefox"},
+      properties = { floating = true },
+      callback = awful.titlebar.add  },
+
+    { rule = { class = "Kshutdown" },
+      properties = { floating = true } },
+    { rule = { class = "xfce4-appfinder" },
+      properties = { floating = true } },
+    { rule = { class = "zeal" },
+      properties = { floating = true } },
+    { rule = { class = "wick-client" },
+      properties = { floating = true } },
+    { rule = { class = "cairo-dock" },
+      properties = { floating = true } },
+    --
+    { rule = { class = "Nautilus" },
+      properties = { tag = tags[1][4] } },
+    { rule = { class = "Thunderbird" },
+      properties = { tag = tags[1][5] } },
+    { rule = { class = "Wps" },
+      properties = { tag = tags[1][6] } },
+    { rule = { instance = "gvim", class = "Gvim"},
+      properties = { tag = tags[1][7]} },
 }
 -- }}}
 
