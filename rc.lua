@@ -396,6 +396,7 @@ autorunApps =
     "nautilus",
     "thunderbird",
     "wps",
+    "xcompmgr -FC &",
 }
 
 if autorun then
