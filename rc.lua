@@ -71,10 +71,21 @@ layouts =
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
+tags = {
+   names  = {
+       "term 1","term 2","term 3",
+       "nautius 4", "mail 5", "wps 6",
+       "gvim 7", "misc 8", "firefox 9"
+   },
+   layout = {
+       layouts[2],layouts[3],layouts[2],
+       layouts[3], layouts[8], layouts[2],
+       layouts[2], layouts[9], layouts[7]
+   }
+}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag(tags.names, s, tags.layout)
 end
 -- }}}
 
