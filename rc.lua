@@ -382,6 +382,23 @@ awful.rules.rules = {
 }
 -- }}}
 
+-- {{{ Autorun programs
+autorun = true
+autorunApps =
+{
+    "firefox",
+    "nautilus",
+    "thunderbird",
+    "wps",
+}
+
+if autorun then
+    for app = 1, #autorunApps do
+        awful.util.spawn_with_shell(autorunApps[app])
+    end
+end
+-- }}}
+
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
