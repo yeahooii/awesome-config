@@ -392,11 +392,9 @@ awful.rules.rules = {
 autorun = true
 autorunApps =
 {
-    "firefox",
     "nautilus",
     "thunderbird",
     "wps",
-    "xcompmgr -FC &",
 }
 
 if autorun then
