@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+OS_TYPE=`uname`
+CURRENT_PATH=$(pwd)
+
+function init_awesome_file()
+{
+    rm -rf ~/.config/awesome
+    ln -s "${CURRENT_PATH}" ~/.config/awesome
+    rm -rf ~/.xinitrc
+    ln -s "${CURRENT_PATH}/_xinitrc" ~/.xinitrc
+}
+
+if [ "${OS_TYPE}" = "Linux" ]; then
+    init_awesome_file;
+else
+    echo "Unsupported OS type"
+    exit 1
+fi

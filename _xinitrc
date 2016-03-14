@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#sleep 100
+#输入法
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+exec fcitx-autostart -d &
+
+xsetroot -solid black &
+#启动屏保程序
+gnome-screensaver &
+#启用gnome的主题，否则你的awesome下的gnome程序会非常难看
+gnome-settings-daemon &
+#电源管理程序
+gnome-power-manager &
+#自动更新程序
+nm-applet --sm-disable &	#网络管理程序
+#update-notifier &
+#设定桌面壁纸 
+#nitrogen：图形化壁纸管理工具。
+#exec feh --bg-scale /root/2548459861_2b0d78920b_b.jpg&
+
+exec firefox &
+exec x-terminal-emulator &
+exec xcompmgr -FC &			#xcompmgr：透明及其他一些特效。
